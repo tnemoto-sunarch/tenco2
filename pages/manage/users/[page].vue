@@ -163,17 +163,17 @@ function update(){
   dialog.value.display = true
   dialog.value.next = async () => {
     // API呼び出し
-    // const res = await $fetch("/api/users/" + page_id, {
-    //   method: "PUT",
-    //   headers: {"Content-Type": "application/json"},
-    //   body: {
-    //     data: {
-    //       name: data.value.name,
-    //       status: data.value.status,
-    //       order_num: data.value.order_num
-    //     }
-    //   }
-    // })
+    const res = await $fetch("/api/users/" + page_id, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: {
+        data: {
+          name: data.value.name,
+          type: data.value.type,
+          status: data.value.status,
+        }
+      }
+    })
     // リストに戻る
     navigateTo('/manage/users/list')
   }

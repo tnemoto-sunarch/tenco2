@@ -195,13 +195,13 @@ function deleteUser(id, name) {
   dialog.value.icon = "error"
   dialog.value.iconColor = "red"
   dialog.value.message = 
-    "以下の登録ユーザーを削除します。\nよろしいですか？\n"
+    "以下のログインユーザーを削除します。\nよろしいですか？\n"
   + "ID  : " + id + "\n"
   + "名称: " + name;
   dialog.value.display = true
   dialog.value.next = async () => {
     // API呼び出し
-    const res = await $fetch("/api/users/" + id + "/delete", {
+    const res = await $fetch("/api/users/" + id, {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
       body: {
