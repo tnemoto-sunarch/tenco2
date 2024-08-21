@@ -25,3 +25,6 @@ logs
 
 .domain
 .conoha
+
+database/data.sql
+database/tenco2.db
