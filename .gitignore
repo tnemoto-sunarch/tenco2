@@ -23,6 +23,7 @@ logs
 .env.*
 !.env.example
 
+.work
 .domain
 .conoha
 
