@@ -38,6 +38,10 @@ export const useAuthStore = defineStore('auth', {
           this.type = res.type
         }
       }
+    },
+    save(uid:string){
+      const tencoCookie = useCookie('tenco_uid', {maxAge: 60 * 60 * 24 * 30}) //(秒) 30日
+      tencoCookie.value = uid
     }
   }
 })

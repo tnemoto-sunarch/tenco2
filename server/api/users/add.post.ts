@@ -41,6 +41,8 @@ export default defineEventHandler(async (event) => {
       if(error){
         console.log('error:')
         console.log(error)
+
+        resolve({status: 202})
       } else {
         
         resolve({status: 200})

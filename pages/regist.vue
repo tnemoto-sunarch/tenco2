@@ -70,6 +70,7 @@ function registUser() {
         }
       }
     })
+    auth.save(data.value.id)
     navigateTo("/")
   }
 }
