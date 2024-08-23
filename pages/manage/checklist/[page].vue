@@ -297,7 +297,9 @@ async function reload(){
   data.value = resData
 
   const resCheckusers = await $fetch("/api/checklist/" + page_id + "/users/list")
-  checkusers.value = resCheckusers
+  if(resCheckusers){
+    checkusers.value = resCheckusers
+  }
 }
 function update(){
   console.log(data)
@@ -315,7 +317,11 @@ function update(){
 function addChecklistUser(){
   editDialog.value.name = null
   editDialog.value.status = '0'
-  editDialog.value.order_num = checkusers.value.reduce((prev, current) => prev.order_num > current.order_num ? prev : current).order_num + 1
+  if(checkusers.value.length > 0){
+    editDialog.value.order_num = checkusers.value.reduce((prev, current) => prev.order_num > current.order_num ? prev : current).order_num + 1
+  } else {
+    editDialog.value.order_num = 1
+  }
   editDialog.value.display = true
   editDialog.value.next = async () => {
     // API呼び出し
