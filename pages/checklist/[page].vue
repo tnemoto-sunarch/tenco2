@@ -49,6 +49,14 @@
               @click="closeChecklist()"
               :disable="auth.type == '0' || checklist.status == '0' || checklist.status == '2'"/>
           </q-bar>
+          <q-bar class="bg-grey-5 text-white">
+              <q-icon name="thumb_up" />
+              <div>{{ complateCount }}</div>&nbsp;&nbsp;
+              <q-icon name="thumb_down" />
+              <div>{{ notComplateCount }}</div>&nbsp;&nbsp;
+              <q-icon name="thumbs_up_down" />
+              <div>{{ totalCount }}</div>
+            </q-bar>
         </q-header>
   
         <q-page-container>
@@ -81,16 +89,6 @@
               </q-item>
             </q-list>
           </q-page>
-          <q-footer dense elevated class="bg-grey-3 text-white">
-            <q-bar>
-              <q-icon name="thumb_up" />
-              <div>{{ complateCount }}</div>&nbsp;&nbsp;
-              <q-icon name="thumb_down" />
-              <div>{{ notComplateCount }}</div>&nbsp;&nbsp;
-              <q-icon name="thumbs_up_down" />
-              <div>{{ totalCount }}</div>
-            </q-bar>
-          </q-footer>
         </q-page-container>
       </q-layout>
     </div>
