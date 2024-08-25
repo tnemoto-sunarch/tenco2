@@ -245,6 +245,7 @@
 
 <script setup>
 const auth = useAuthStore()
+const checklistMenu = useChecklistStore()
 const filter = ref("")
 const page_id = useRoute().params.page;
 const tab = ref("tab1")
@@ -325,6 +326,7 @@ function update(){
     })
     // リロード
     navigateTo(`/manage/checklist/list`)
+    checklistMenu.load()
   }
 }
 

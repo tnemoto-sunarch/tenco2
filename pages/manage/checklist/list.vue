@@ -97,6 +97,7 @@
 
 <script setup>
 const auth = useAuthStore()
+const checklistMenu = useChecklistStore()
 const filter = ref("")
 const columns = [
   {name: 'id', required: true, label: 'ID', align: 'left', field: row => row.id, sortable: true},
@@ -147,6 +148,7 @@ function reopenChecklist(id, name) {
     })
     // reload
     reload()
+    checklistMenu.load()
   }
 }
 
@@ -174,6 +176,7 @@ function initChecklist(id, name) {
     })
     // reload
     reload()
+    checklistMenu.load()
   }
 }
 
@@ -201,6 +204,7 @@ function deleteChecklist(id, name) {
     })
     // reload
     reload()
+    checklistMenu.load()
   }
 }
 

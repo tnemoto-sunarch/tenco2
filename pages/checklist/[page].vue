@@ -109,6 +109,7 @@
 
 <script setup>
 const auth = useAuthStore()
+const checklistMenu = useChecklistStore()
 const dialog = ref({
   display: false,
   icon: "info",
@@ -168,6 +169,7 @@ function selectBar(status){
     })
     // reload
     reload()
+    checklistMenu.load()
   };
 }
 function closeChecklist(){
@@ -189,6 +191,7 @@ function closeChecklist(){
     })
     // reload
     reload()
+    checklistMenu.load()
   };
 }
 async function updateCheck(cuid, value){

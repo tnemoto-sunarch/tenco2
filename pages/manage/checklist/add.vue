@@ -60,6 +60,7 @@
 
 <script setup>
 const auth = useAuthStore()
+const checklistMenu = useChecklistStore()
 const data = ref({
     name: "",
     status: "0",
@@ -101,6 +102,7 @@ function addChecklist(){
       }
     })
     reload()
+    checklistMenu.load()
   }
 }
 async function reload(){

@@ -23,7 +23,7 @@
             <q-list dense bordered padding class="rounded-borders text">
 
               <q-item 
-                v-for="(item, i) in checkList" :key="i"
+                v-for="(item, i) in checklist.rows.value" :key="i"
                 clickable 
                 v-ripple 
                 :active="activeMenu === item.id" 
@@ -120,6 +120,7 @@
 
 <script setup>
 const auth = useAuthStore()
+const checklist = useChecklistStore()
 const leftDrawerOpen = ref(false)
 const activeMenu = ref(false)
 const toggleLeftDrawer = () => {
@@ -130,9 +131,7 @@ const typeMap = {
   "1": "green text-white",
   "2": "red text-white"
 }
-const { data } = await useFetch('/api/checklist/list');
-console.log(data.value)
-const checkList = data.value;
+await checklist.load()
 </script>
 
 <style lang="css" scoped>
