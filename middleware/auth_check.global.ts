@@ -16,6 +16,10 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: {
+                  request: {
+                    authId: auth.userId,
+                    authName: auth.userName
+                  },
                   data: {
                   }
                 }

@@ -132,6 +132,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const page_id = useRoute().params.page;
 const tab = ref("tab1")
 const data = ref({})
@@ -167,6 +168,10 @@ function update(){
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
         data: {
           name: data.value.name,
           type: data.value.type,

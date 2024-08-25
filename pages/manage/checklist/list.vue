@@ -96,6 +96,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const filter = ref("")
 const columns = [
   {name: 'id', required: true, label: 'ID', align: 'left', field: row => row.id, sortable: true},
@@ -136,6 +137,12 @@ function reopenChecklist(id, name) {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload
@@ -157,6 +164,12 @@ function initChecklist(id, name) {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload
@@ -178,6 +191,12 @@ function deleteChecklist(id, name) {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload

@@ -29,11 +29,11 @@ export default defineEventHandler(async (event) => {
       $close_date: null,
       $order_num: body.data.order_num,
       $create_date: now,
-      $create_user_id: null,
-      $create_user_name: null,
+      $create_user_id: body.request.authId,
+      $create_user_name: body.request.authName,
       $update_date: now,
-      $update_user_id: null,
-      $update_user_name: null
+      $update_user_id: body.request.authId,
+      $update_user_name: body.request.authName
     }
     console.log(params)
     db.run('INSERT INTO checklist VALUES ('

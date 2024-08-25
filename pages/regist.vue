@@ -64,6 +64,10 @@ function registUser() {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
         data: {
           id: data.value.id,
           name: data.value.name

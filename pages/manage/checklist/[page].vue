@@ -244,6 +244,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const filter = ref("")
 const page_id = useRoute().params.page;
 const tab = ref("tab1")
@@ -329,6 +330,10 @@ function addChecklistUser(){
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
         data: {
           name: editDialog.value.name,
           status: editDialog.value.status,
@@ -354,6 +359,12 @@ function deleteChecklistUser(id, name) {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // リロード

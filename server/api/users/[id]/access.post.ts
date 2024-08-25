@@ -15,8 +15,8 @@ export default defineEventHandler(async (event) => {
       $id: pk,
       $last_access_date: now,
       $update_date: now,
-      $update_user_id: null,
-      $update_user_name: null
+      $update_user_id: body.request.authId,
+      $update_user_name: body.request.authName
     }
     console.log(params)
     db.run('UPDATE login_user SET '

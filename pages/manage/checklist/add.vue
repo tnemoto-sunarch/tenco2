@@ -59,6 +59,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const data = ref({
     name: "",
     status: "0",
@@ -87,6 +88,10 @@ function addChecklist(){
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
         data: {
           name: data.value.name,
           status: data.value.status,

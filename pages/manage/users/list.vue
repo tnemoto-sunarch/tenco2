@@ -138,6 +138,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const filter = ref("")
 const rows = ref([])
 const pagination = {
@@ -205,6 +206,12 @@ function deleteUser(id, name) {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload

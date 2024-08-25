@@ -160,6 +160,12 @@ function selectBar(status){
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload
@@ -175,6 +181,12 @@ function closeChecklist(){
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload
@@ -187,6 +199,10 @@ async function updateCheck(cuid, value){
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: {
+      request: {
+        authId: auth.userId,
+        authName: auth.userName
+      },
       data: {
         status: value
       }

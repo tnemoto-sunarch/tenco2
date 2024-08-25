@@ -116,6 +116,7 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
 const filter = ref("")
 const rows = ref([])
 const pagination = {
@@ -160,6 +161,10 @@ function addChecklistUser(){
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
         data: {
           name: editDialog.value.name,
           status: editDialog.value.status,
@@ -185,6 +190,12 @@ function deleteChecklist(id, name) {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
       body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+        }
       }
     })
     // reload

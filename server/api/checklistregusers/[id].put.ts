@@ -19,8 +19,8 @@ export default defineEventHandler(async (event) => {
       $status: body.data.status,
       $order_num: body.data.order_num,
       $update_date: now,
-      $update_user_id: null,
-      $update_user_name: null
+      $update_user_id: body.request.authId,
+      $update_user_name: body.request.authName
     }
     console.log(params)
     db.run('UPDATE checklist_reg_user ' 
