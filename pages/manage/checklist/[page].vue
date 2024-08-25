@@ -306,12 +306,25 @@ function update(){
   console.log(data)
   dialog.value.message = "チェックシートを更新します。\nよろしいですか？"
   dialog.value.display = true
-  dialog.value.next = () => {
+  dialog.value.next = async () => {
     // API呼び出し
-    console.log(data)
-
+    const res = await $fetch("/api/checklist/" + page_id, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: {
+        request: {
+          authId: auth.userId,
+          authName: auth.userName
+        },
+        data: {
+          name: data.value.name,
+          status: data.value.status,
+          order_num: data.value.order_num
+        }
+      }
+    })
     // リロード
-    reload()
+    navigateTo(`/manage/checklist/list`)
   }
 }
 
