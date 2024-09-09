@@ -33,7 +33,7 @@ CREATE TABLE `checklist_item` (
     `update_user_name` TEXT
 );
 
-DROP TABLE checklist_reg_user;
+DROP TABLE checklist_reg_item;
 CREATE TABLE checklist_reg_item(
     `id` TEXT PRIMARY KEY, 
     `name` TEXT, 
