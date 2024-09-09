@@ -21,3 +21,4 @@ jobs:
         with:
           name: build
           path: .output
+          include-hidden-files: true
