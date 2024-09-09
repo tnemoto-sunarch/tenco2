@@ -3,7 +3,7 @@
       <q-layout 
         view="lHh lpr lFf" 
         container 
-        style="height: 700px" 
+        style="height: 100svh" 
         class="shadow-2 rounded-borders"
       >
         <q-header elevated>
