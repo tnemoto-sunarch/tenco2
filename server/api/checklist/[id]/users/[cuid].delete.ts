@@ -13,7 +13,7 @@ export default defineEventHandler((event) => {
       $cuid: cuid
     }
     console.log(params)
-    db.run('DELETE FROM checklist_user WHERE checklist_id = $cid and id = $cuid', params, (error) => {
+    db.run('DELETE FROM checklist_item WHERE checklist_id = $cid and id = $cuid', params, (error) => {
       if(error){
         console.log('error:')
         console.log(error)

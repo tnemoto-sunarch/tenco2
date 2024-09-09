@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
   return new Promise((resolve, reject) => {
     const params = {$id: pk}
     console.log(params)
-    db.all('SELECT * FROM checklist_user WHERE checklist_id = $id', params, (error, rows) => {
+    db.all('SELECT * FROM checklist_item WHERE checklist_id = $id', params, (error, rows) => {
       if(error){
         console.log('error:')
         console.log(error)

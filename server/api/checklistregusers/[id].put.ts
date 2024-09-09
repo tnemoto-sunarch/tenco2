@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
       $update_user_name: body.request.authName
     }
     console.log(params)
-    db.run('UPDATE checklist_reg_user ' 
+    db.run('UPDATE checklist_reg_item ' 
       + 'SET name = $name'
       + ' ,  status = $status'
       + ' ,  order_num = $order_num'

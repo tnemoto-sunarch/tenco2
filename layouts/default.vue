@@ -74,15 +74,15 @@
                 <q-item-section>チェックリスト</q-item-section>
               </q-item>
               <q-item clickable v-ripple 
-                :active="activeMenu === 'admin_checklist_user'" 
-                @click="activeMenu = 'admin_checklist_user'" 
+                :active="activeMenu === 'admin_checklist_item'" 
+                @click="activeMenu = 'admin_checklist_item'" 
                 active-class="my-menu-link"
                 to="/manage/checklistusers/list"
               >
                 <q-item-section avatar>
                   <q-icon name="inbox" />
                 </q-item-section>
-                <q-item-section>チェックリストユーザー</q-item-section>
+                <q-item-section>チェック対象一覧</q-item-section>
               </q-item>
               <q-item clickable v-ripple 
                 :active="activeMenu === 'admin_userlist'" 

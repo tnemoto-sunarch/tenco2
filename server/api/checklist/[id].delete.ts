@@ -23,7 +23,7 @@ export default defineEventHandler((event) => {
   const user = new Promise((resolve, reject) => {
     const params = {$id: pk}
     console.log(params)
-    db.run('DELETE FROM checklist_user WHERE checklist_id = $id', params, (error) => {
+    db.run('DELETE FROM checklist_item WHERE checklist_id = $id', params, (error) => {
       if(error){
         console.log('error:')
         console.log(error)

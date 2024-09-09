@@ -12,7 +12,7 @@
           <q-space />
           <q-tabs v-model="tab" shrink stretch>
             <q-tab name="tab1" label="基本" />
-            <q-tab name="tab2" label="ユーザー" />
+            <q-tab name="tab2" label="対象" />
           </q-tabs>
         </q-bar>
       </q-header>
@@ -125,7 +125,7 @@
             <q-tab-panel name="tab2">
               <q-table
                 dense
-                title="チェックユーザー一覧"
+                title="チェック対象一覧"
                 :rows="checkusers"
                 :columns="columns"
                 row-key="id"
@@ -196,7 +196,7 @@
   <q-dialog v-model="editDialog.display" persistent>
     <q-card>
       <q-card-section class="items-center">
-        <div class="text-h8">登録ユーザー追加</div>
+        <div class="text-h8">対象追加</div>
       </q-card-section>
       <q-card-section class="items-center">
         <q-input color="blue" filled v-model="editDialog.name" label="名前">
@@ -210,7 +210,7 @@
           map-options 
           outlined 
           v-model="editDialog.status" 
-          :options="checklist_user_status_options" >
+          :options="checklist_item_status_options" >
           <template v-slot:prepend>
             <q-icon name="edit" />
           </template>
@@ -273,12 +273,12 @@ const dialog = ref({
   message: "",
   next: function(){return null;}
 })
-const checklist_user_status_options = [
+const checklist_item_status_options = [
   {label: "未チェック", value: '0'},
   {label: "チェック完了", value: '1'}
 ]
 const displayStatus = (status) => {
-  return checklist_user_status_options[status].label
+  return checklist_item_status_options[status].label
 }
 const columns = [
   {name: 'id', required: true, label: 'ID', align: 'left', field: row => row.id, sortable: true},

@@ -17,8 +17,8 @@ CREATE TABLE `checklist` (
     `update_user_name` TEXT
 );
 
-DROP TABLE checklist_user;
-CREATE TABLE `checklist_user` (
+DROP TABLE checklist_item;
+CREATE TABLE `checklist_item` (
     `id` INTEGER PRIMARY KEY AUTOINCREMENT, 
     `checklist_id` TEXT, 
     `name` TEXT, 
@@ -34,7 +34,7 @@ CREATE TABLE `checklist_user` (
 );
 
 DROP TABLE checklist_reg_user;
-CREATE TABLE checklist_reg_user(
+CREATE TABLE checklist_reg_item(
     `id` TEXT PRIMARY KEY, 
     `name` TEXT, 
     `status` TEXT, 

@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
   return new Promise((resolve, reject) => {
     const params = {$id: pk}
     console.log(params)
-    db.get('SELECT * FROM checklist_reg_user WHERE id = $id', params, (error, rows) => {
+    db.get('SELECT * FROM checklist_reg_item WHERE id = $id', params, (error, rows) => {
       if(error){
         console.log('error:')
         console.log(error)

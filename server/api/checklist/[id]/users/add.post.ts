@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
       $update_user_name: body.request.authName
      }
     console.log(params)
-    db.run('INSERT INTO checklist_user VALUES ('
+    db.run('INSERT INTO checklist_item VALUES ('
       + '$id,'
       + '$checklist_id,'
       + '$name,'

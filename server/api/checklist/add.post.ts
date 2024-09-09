@@ -68,14 +68,14 @@ export default defineEventHandler(async (event) => {
         $checklist_id: id,
         $status: "0",
         $create_date: now,
-        $create_user_id: null,
-        $create_user_name: null,
+        $create_user_id: body.request.authId,
+        $create_user_name: body.request.authName,
         $update_date: now,
-        $update_user_id: null,
-        $update_user_name: null
-      }
+        $update_user_id: body.request.authId,
+        $update_user_name: body.request.authName
+        }
       console.log(params)
-      db.run('INSERT INTO checklist_user '
+      db.run('INSERT INTO checklist_item '
         + 'SELECT NULL,' //AUTOINCREMENT
         + '$checklist_id,'
         + 'name,'
@@ -88,7 +88,7 @@ export default defineEventHandler(async (event) => {
         + '$update_date,'
         + '$update_user_id,'
         + '$update_user_name'
-        + ' FROM checklist_reg_user WHERE status = "1"', params, (error) => {
+        + ' FROM checklist_reg_item WHERE status = "1"', params, (error) => {
         if(error){
           console.log('error:')
           console.log(error)

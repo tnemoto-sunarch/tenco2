@@ -35,7 +35,7 @@
             color="green"
             unchecked-icon="clear"
             size="lg"
-            label="全てのチェックリストユーザーを追加する"
+            label="全ての登録済みチェック対象を追加する"
           />
       </q-card-section>
       <q-card-actions align="center">

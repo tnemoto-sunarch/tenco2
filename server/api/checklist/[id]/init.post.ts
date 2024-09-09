@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
       $update_user_name: body.request.authName
     }
     console.log(params)
-    db.run('UPDATE checklist_user SET '
+    db.run('UPDATE checklist_item SET '
       + '   status = $status'
       + ' , check_date = $check_date'
       + ' , update_date = $update_date'

@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <q-table
       dense
-      title="チェックシート登録ユーザー一覧"
+      title="チェック対象一覧"
       :rows="rows"
       :columns="columns"
       row-key="id"
@@ -68,7 +68,7 @@
   <q-dialog v-model="editDialog.display" persistent>
     <q-card>
       <q-card-section class="items-center">
-        <div class="text-h8">登録ユーザー追加</div>
+        <div class="text-h8">対象追加</div>
       </q-card-section>
       <q-card-section class="items-center">
         <q-input color="blue" filled v-model="editDialog.name" label="名前">

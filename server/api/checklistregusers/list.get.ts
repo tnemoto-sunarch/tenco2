@@ -6,7 +6,7 @@ export default defineEventHandler((event) => {
   console.log("list >>")
 
   return new Promise((resolve, reject) => {
-    db.all('SELECT * FROM checklist_reg_user ORDER BY order_num', (error, rows) => {
+    db.all('SELECT * FROM checklist_reg_item ORDER BY order_num', (error, rows) => {
       if(error){
         console.log('error:')
         console.log(error)
