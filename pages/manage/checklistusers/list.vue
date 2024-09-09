@@ -153,7 +153,11 @@ const columns = [
 function addChecklistUser(){
   editDialog.value.name = null
   editDialog.value.status = '1'
-  editDialog.value.order_num = rows.value.reduce((prev, current) => prev.order_num > current.order_num ? prev : current).order_num + 1
+  if(rows && rows.value && rows.value.length > 0){
+    editDialog.value.order_num = rows.value.reduce((prev, current) => prev.order_num > current.order_num ? prev : current).order_num + 1
+  } else {
+    editDialog.value.order_num = 1
+  }
   editDialog.value.display = true
   editDialog.value.next = async () => {
     // API呼び出し
