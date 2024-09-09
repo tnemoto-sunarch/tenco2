@@ -8,8 +8,9 @@ export default defineEventHandler(async (event) => {
 
   const N = 12
   const id = crypto
-      .randomBytes(N)
+      .randomBytes(N * 2)
       .toString('base64')
+      .replace(/[\/\+\=]/g,'')
       .substring(0, N)
 
   const body = await readBody(event)

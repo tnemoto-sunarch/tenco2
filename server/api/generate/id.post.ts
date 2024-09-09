@@ -8,8 +8,9 @@ export default defineEventHandler(async (event) => {
 
   const N = body.data.n
   const id = crypto
-      .randomBytes(N)
+      .randomBytes(N * 2)
       .toString('base64')
+      .replace(/[\/\+\=]/g,'')
       .substring(0, N)
 
   const now = fns.format(new Date(), "yyyy-MM-dd HH:mm:ss")
