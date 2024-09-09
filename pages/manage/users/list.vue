@@ -80,48 +80,13 @@
           </q-card-section>
           <q-card-actions align="right">
             <q-btn rounded color="primary" icon="edit" label="編集" :to="'/manage/users/' + props.row.id"/>
-            <q-btn rounded color="red" icon="delete" label="削除" @click="updateUser(props.row.id, props.row.name)"/>
+            <q-btn rounded color="red" icon="delete" label="削除" @click="deleteUser(props.row.id, props.row.name)"/>
           </q-card-actions>
         </q-card>
         </div>
       </template>
     </q-table>
   </div>
-  <q-dialog v-model="editDialog.display" persistent>
-    <q-card>
-      <q-card-section class="items-center">
-        <div class="text-h8">登録ユーザー追加</div>
-      </q-card-section>
-      <q-card-section class="items-center">
-        <q-input color="blue" filled v-model="editDialog.name" label="名前">
-          <template v-slot:prepend>
-            <q-icon name="edit" />
-          </template>
-        </q-input>
-        <q-select 
-          label="ステータス"
-          emit-value
-          map-options 
-          outlined 
-          v-model="editDialog.status" 
-          :options="options" >
-          <template v-slot:prepend>
-            <q-icon name="edit" />
-          </template>
-        </q-select>
-        <q-input color="blue" filled v-model="editDialog.order_num" label="並び順">
-          <template v-slot:prepend>
-            <q-icon name="edit" />
-          </template>
-        </q-input>
-      </q-card-section>
-
-      <q-card-actions align="right">
-        <q-btn flat label="更新" color="primary" v-close-popup @click="editDialog.next()"/>
-        <q-btn flat label="Cancel" color="gray" v-close-popup />
-      </q-card-actions>
-    </q-card>
-  </q-dialog>
   <q-dialog v-model="dialog.display" persistent>
     <q-card>
       <q-card-section class="row items-center">
