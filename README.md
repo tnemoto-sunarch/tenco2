@@ -1,75 +1,32 @@
-# Nuxt 3 Minimal Starter
+# てんこちゃん ver2.0
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 使用技術
+* Nuxt3
+* Quasar
+* SQLite3
+* GitHubActions
 
-## Setup
+コンセプトはNode.jsだけでお手軽アプリにしよう的な。
+画面とAPIを別で用意するのが面倒なので。
 
-Make sure to install the dependencies:
+## 機能一覧
+* ユーザー登録
+* 自動ログイン
+* チェックリスト一覧（メニュー表示）
+* チェックリスト表示
+* チェックリスト開始／完了
+* チェックリスト更新
+* チェックリスト新規登録
+* 管理メニュー
+  * チェックリスト詳細表示／編集
+  * チェックリスト対象個別編集
+  * チェックリスト初期化／再開
+  * チェックリスト対象一覧
+  * チェックリスト対象登録／更新／削除
+  * ログインユーザー一覧
+  * ログインユーザー詳細表示／更新／削除
+  * ログインユーザー有効／無効化
+  * ログインユーザー権限変更
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 免責事項
+ノリと思いつきで作ったものなので何が起きても知りません。
