@@ -82,7 +82,7 @@
                       color="green"
                       unchecked-icon="clear"
                       size="lg"
-                      :disable="!(checklist.status == '1')"
+                      :disable="!( (auth.type == '1' || auth.type == '2') && checklist.status == '1' )"
                       @update:model-value="updateCheck(item.id, item.status)"
                     />
                 </div>
