@@ -8,10 +8,13 @@
         <q-toolbar-title @click="navigateTo('/')">
           <div>てんこちゃん <small>ver2.0</small></div>
         </q-toolbar-title>
-        <q-chip 
+        <q-btn 
+          class="my-account"
+          rounded
           icon="account_circle"
           :color="typeMap[auth.type]"
-        >{{ auth.userName }}</q-chip>
+          @click="navigateTo('/userinfo')"
+        >{{ auth.userName }}</q-btn>
       </q-toolbar>
     </q-header>
 
@@ -127,7 +130,7 @@ const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 const typeMap = {
-  "0": "",
+  "0": "black text-gray",
   "1": "green text-white",
   "2": "red text-white"
 }
@@ -138,5 +141,8 @@ await checklist.load()
 .my-menu-link {
   color: white;
   background: #51c3f4;
+}
+.my-account {
+  background-color: #eeeeee;
 }
 </style>
