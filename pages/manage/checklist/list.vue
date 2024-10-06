@@ -2,6 +2,7 @@
   <div class="q-pa-md">
     <q-table
       dense
+      :grid="$q.screen.xs"
       title="チェックシート一覧"
       :rows="rows"
       :columns="columns"
@@ -77,6 +78,35 @@
             {{ col.value }}
           </q-td>
         </q-tr>
+      </template>
+      <template v-slot:item="props">
+        <div class="q-pa-xs col-xs-12">
+          <q-card bordered flat>
+          <q-card-section>
+            <q-list dense>
+              <q-item v-for="col in props.cols.filter(col => col.name !== 'desc')" :key="col.name">
+                <q-item-section>
+                  <q-item-label caption>{{ col.label }}</q-item-label>
+                </q-item-section>
+                <q-item-section side>
+                  <q-item-label>{{ col.value }}</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-card-section>
+          <q-card-actions align="right">
+            <q-btn rounded color="primary" icon="edit" label="詳細" :to="'/manage/checklist/' + props.row.id"/>
+            <q-btn rounded color="primary" icon="update" label="再開" 
+              :disable="props.row.status == '2' ? false : true" 
+              :class="props.row.status == '2' ? '' : 'disabled'"
+              @click="reopenChecklist(props.row.id, props.row.name)"/>
+            <q-btn rounded color="primary" icon="delete" label="初期化"
+              @click="initChecklist(props.row.id, props.row.name)"/>
+            <q-btn rounded color="red" icon="delete_forever" label="削除"
+              @click="deleteChecklist(props.row.id, props.row.name)"/>
+          </q-card-actions>
+        </q-card>
+        </div>
       </template>
     </q-table>
   </div>

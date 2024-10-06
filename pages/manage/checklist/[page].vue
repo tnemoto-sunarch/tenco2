@@ -12,7 +12,7 @@
           <q-space />
           <q-tabs v-model="tab" shrink stretch>
             <q-tab name="tab1" label="基本" />
-            <q-tab name="tab2" label="対象" />
+            <q-tab name="tab2" :label="'対象(' + checkusers.length + ')'" />
           </q-tabs>
         </q-bar>
       </q-header>
@@ -125,6 +125,7 @@
             <q-tab-panel name="tab2">
               <q-table
                 dense
+                :grid="$q.screen.xs"
                 title="チェック対象一覧"
                 :rows="checkusers"
                 :columns="columns"
@@ -185,6 +186,28 @@
                       {{ col.value }}
                     </q-td>
                   </q-tr>
+                </template>
+                <template v-slot:item="props">
+                  <div class="q-pa-xs col-xs-12">
+                    <q-card bordered flat>
+                    <q-card-section>
+                      <q-list dense>
+                        <q-item v-for="col in props.cols.filter(col => col.name !== 'desc')" :key="col.name">
+                          <q-item-section>
+                            <q-item-label caption>{{ col.label }}</q-item-label>
+                          </q-item-section>
+                          <q-item-section side>
+                            <q-item-label>{{ col.value }}</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-card-section>
+                    <q-card-actions align="right">
+                      <q-btn rounded color="primary" icon="edit" label="編集"/>
+                      <q-btn rounded color="red" icon="delete_forever" label="削除" @click="deleteChecklistUser(props.row.id, props.row.name)"/>
+                    </q-card-actions>
+                  </q-card>
+                  </div>
                 </template>
               </q-table>
             </q-tab-panel>
